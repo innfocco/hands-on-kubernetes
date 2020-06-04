@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: message-processor
+  labels:
+    app: message-processor
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: message-processor
+  template:
+    metadata:
+      labels:
+        app: message-processor
+    spec:
+      containers:
+      - name: message-processor
+        image: innfocco/message-processor:0.1
+        ports:
+        - containerPort: 8080
+        volumeMounts:
+          - name: application-config 
+            mountPath: "/spring-conf" 
+            readOnly: true
+      volumes:
+      - name: application-config
+        configMap:
+          name: spring-config 
+          items:
+          - key: application.properties 
+            path: application.properties

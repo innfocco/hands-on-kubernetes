@@ -1,0 +1,41 @@
+{
+	"info": {
+		"_postman_id": "cebc342e-d5e1-4cb3-85a9-a180a85cd5c5",
+		"name": "hands-on-k8s",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "send-message",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\" : \"{{$guid}}\",\n\t\"header\" : \"primeira Msg\",\n\t\"body\" : \"Uma breve desc aqui...\"\n}"
+				},
+				"url": {
+					"raw": "http://192.168.99.100/messages",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"99",
+						"100"
+					],
+					"path": [
+						"messages"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
