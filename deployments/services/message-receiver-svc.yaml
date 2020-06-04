@@ -10,17 +10,3 @@ spec:
   - protocol: TCP
     port: 8080
     targetPort: 8080
-    
-    
-kind: Service
-apiVersion: v1
-metadata:
-  name: message-receiver-svc
-spec:
-  selector:
-    app: message-receiver
-  ports:
-  - name: p1 
-    protocol: TCP
-    port: 8080
-    targetPort: 8080
